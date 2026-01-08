@@ -1,6 +1,6 @@
 # G5 Tool Manager
 
-A professional tool library viewer for Autodesk Fusion tool libraries.
+A tool library viewer for Autodesk Fusion.
 
 **Created for Grace Engineering**
 
