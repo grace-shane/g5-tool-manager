@@ -1,8 +1,8 @@
 # G5 Tool Manager
 
-A professional tool library viewer for Autodesk Fusion 360 tool libraries.
+A professional tool library viewer for Autodesk Fusion tool libraries.
 
-**Created for Grace Engineering - Prime Archery Division**
+**Created for Grace Engineering**
 
 ## Features
 
@@ -24,7 +24,7 @@ A professional tool library viewer for Autodesk Fusion 360 tool libraries.
 ### Loading Tool Libraries
 
 1. Click "Choose File" button
-2. Select one or more Fusion 360 tool library JSON files
+2. Select one or more Fusion tool library JSON files
 3. Hold Ctrl (Windows/Linux) or Cmd (Mac) to select multiple files
 4. All tools will be loaded and displayed in the table
 
@@ -75,7 +75,7 @@ g5-tool-manager/
 
 ## Supported File Types
 
-- Fusion 360 Tool Library JSON files (.json)
+- Fusion Tool Library JSON files (.json)
 - Compatible with tool libraries exported from Fusion 360
 
 ## Browser Compatibility
@@ -94,6 +94,6 @@ g5-tool-manager/
 
 ## About
 
-Developed for Grace Engineering's machining operations. Styled to match Prime Archery's precision engineering aesthetic.
+Developed for Grace Engineering's machining operations.
 
 **Accuracy is Everything™**
