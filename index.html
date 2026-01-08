@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G5 Tool Manager - Grace Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>G5 Tool Manager</h1>
+            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem; letter-spacing: 1px;">GRACE ENGINEERING | PRIME ARCHERY DIVISION</div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span>Total Tools:</span>
+                    <span class="stat-value" id="totalTools">0</span>
+                </div>
+                <div class="stat-item">
+                    <span>Filtered:</span>
+                    <span class="stat-value" id="filteredTools">0</span>
+                </div>
+                <div class="stat-item">
+                    <span>Vendor:</span>
+                    <span class="stat-value" id="vendor">—</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label class="control-label">Load Library</label>
+                <input type="file" id="fileInput" accept=".json" multiple style="font-size: 0.85rem;">
+            </div>
+
+            <div class="control-group" id="loadedLibrariesGroup" style="display: none;">
+                <label class="control-label">Loaded Libraries</label>
+                <div id="loadedLibrariesList" style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;"></div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Search</label>
+                <input type="text" id="searchInput" placeholder="Product ID, description..." disabled>
+            </div>
+            
+            <div class="control-group">
+                <label class="control-label">Tool Type</label>
+                <select id="typeFilter" disabled>
+                    <option value="">All Types</option>
+                </select>
+            </div>
+
+            <!-- Common filters (shown for all tool types) -->
+            <div class="control-group" id="vendorFilterGroup">
+                <label class="control-label">Vendor</label>
+                <select id="vendorFilter" disabled>
+                    <option value="">All Vendors</option>
+                </select>
+            </div>
+
+            <!-- Cutting tool filters (mills and drills) -->
+            <div class="control-group filter-cutting" style="display: none;">
+                <label class="control-label">Min Diameter</label>
+                <input type="number" id="minDiameter" step="0.001" placeholder="0.000" disabled>
+            </div>
+
+            <div class="control-group filter-cutting" style="display: none;">
+                <label class="control-label">Max Diameter</label>
+                <input type="number" id="maxDiameter" step="0.001" placeholder="10.000" disabled>
+            </div>
+
+            <div class="control-group filter-cutting" style="display: none;">
+                <label class="control-label">Flutes</label>
+                <select id="flutesFilter" disabled>
+                    <option value="">All</option>
+                </select>
+            </div>
+
+            <!-- Mill-specific filters -->
+            <div class="control-group filter-mill" style="display: none;">
+                <label class="control-label">Corner Radius</label>
+                <select id="radiusFilter" disabled>
+                    <option value="">All</option>
+                </select>
+            </div>
+
+            <!-- Drill-specific filters -->
+            <div class="control-group filter-drill" style="display: none;">
+                <label class="control-label">Point Angle</label>
+                <select id="pointAngleFilter" disabled>
+                    <option value="">All</option>
+                </select>
+            </div>
+
+            <!-- Holder-specific filters -->
+            <div class="control-group filter-holder" style="display: none;">
+                <label class="control-label">Min Gauge Length</label>
+                <input type="number" id="minGaugeLength" step="1" placeholder="0" disabled>
+            </div>
+
+            <div class="control-group filter-holder" style="display: none;">
+                <label class="control-label">Max Gauge Length</label>
+                <input type="number" id="maxGaugeLength" step="1" placeholder="1000" disabled>
+            </div>
+
+            <button onclick="app.resetFilters()">Reset Filters</button>
+            <button onclick="app.exportMergedLibrary()" id="exportBtn" disabled style="background: var(--bg-tertiary); border: 1px solid var(--accent-primary);">Export Merged Library</button>
+        </div>
+
+        <div class="main-content">
+            <div class="table-container">
+                <div class="table-header" id="tableHeader">
+                    <!-- Dynamic headers will be inserted here -->
+                </div>
+                <div class="table-body" id="tableBody">
+                    <div class="loading">Loading tools</div>
+                </div>
+            </div>
+
+            <div class="detail-panel" id="detailPanel">
+                <div class="no-selection">
+                    <p>← Select a tool to view details</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
